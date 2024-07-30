@@ -16,13 +16,19 @@ def create_beautiful_table(statistics):
             statistic['average_salary']
         ])
     
-    table = AsciiTable(vacancies_table)
-    print(table.table)
+    table = AsciiTable(vacancies_table).table
+    return table
 
-load_dotenv()
-super_secret_key = os.getenv("SUPER_SECRET_KEY")
 
-superjob_statistic = get_superjob_statistic(super_secret_key)
-hh_statistic = get_HH_statistic()
-create_beautiful_table(superjob_statistic)
-create_beautiful_table(hh_statistic)
+
+def main():
+    load_dotenv()
+    superjob_key = os.getenv("SUPER_SECRET_KEY")
+    superjob_statistic = get_superjob_statistic(superjob_key)
+    hh_statistic = get_HH_statistic()
+    print(create_beautiful_table(superjob_statistic))
+    print(create_beautiful_table(hh_statistic))
+
+
+if __name__ == '__main__':
+    main()
