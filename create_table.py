@@ -22,9 +22,9 @@ def create_beautiful_table(statistics):
 
 def main():
     load_dotenv()
-    super_secret_key = os.getenv("SUPER_SECRET_KEY")
+    superjob_key = os.getenv("SUPER_SECRET_KEY")
     
-    superjob_statistic = get_superjob_statistic(super_secret_key)
+    superjob_statistic = get_superjob_statistic(superjob_key)
     hh_statistic = get_HH_statistic()
     create_beautiful_table(superjob_statistic)
     create_beautiful_table(hh_statistic)
