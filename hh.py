@@ -1,5 +1,7 @@
 import requests
 from itertools import count
+import os
+
 
 def predict_rub_salary(salary):
     if salary['from'] and salary['to']:
@@ -39,8 +41,10 @@ def get_HH_statistic():
                 if salary and salary['currency'] == 'RUR':
                     vacancies_processed += 1
                     salary_sum += predict_rub_salary(salary)
-    
-        average_salary = salary_sum / vacancies_processed
+        try:
+            average_salary = salary_sum / vacancies_processed
+        except ZeroDivisionError:
+            average_salary = 0
         languages_statistic[language] = {
             "vacancies_found" : platform_answer['found'],
             "vacancies_processed" : vacancies_processed,
