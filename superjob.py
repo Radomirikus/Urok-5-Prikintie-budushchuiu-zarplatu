@@ -25,13 +25,14 @@ def get_superjob_statistic(super_secret_key):
             response.raise_for_status()
             answer = response.json()
             vacancies = answer['objects']
-            if not answer['more']:
-                break
             
             for vacancy in vacancies:
                 if vacancy['currency'] == 'rub' and (vacancy['payment_from'] or vacancy['payment_to']):
                     vacancies_processed += 1
                     sj_salary_sum += predict_rub_salary(vacancy['payment_from'], vacancy['payment_to'])
+                    
+            if not answer['more']:
+                break
                 
         try:
             average_salary = sj_salary_sum / vacancies_processed

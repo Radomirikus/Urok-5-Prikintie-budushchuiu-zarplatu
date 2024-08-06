@@ -1,9 +1,9 @@
-def predict_rub_salary(salary):
-    if salary['from'] and salary['to']:
-        return salary['from'] + salary['to'] / 2
+def predict_rub_salary(salary_from, salary_to):
+    if salary_from and salary_to:
+        return salary_from + salary_to / 2
 
-    elif salary['from']:
-        return salary['from'] * 1.2
+    elif salary_from:
+        return salary_from * 1.2
 
     else:
-        return salary['to'] * 0.8
+        return salary_to * 0.8
