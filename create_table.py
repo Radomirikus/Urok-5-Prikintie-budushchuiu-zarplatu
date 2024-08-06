@@ -1,8 +1,10 @@
+import os
+from dotenv import load_dotenv
+from terminaltables import AsciiTable
+
 from superjob import get_superjob_statistic
 from hh import get_HH_statistic
-from terminaltables import AsciiTable
-from dotenv import load_dotenv
-import os
+
 
 def create_beautiful_table(statistics):
     vacancies_table = [

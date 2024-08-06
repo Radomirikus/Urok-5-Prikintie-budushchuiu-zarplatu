@@ -1,7 +1,5 @@
 import requests
-from dotenv import load_dotenv
-import os
-from hh import predict_rub_salary
+from predict_rub_salary import predict_rub_salary
 from itertools import count
 
 def get_superjob_statistic(super_secret_key):

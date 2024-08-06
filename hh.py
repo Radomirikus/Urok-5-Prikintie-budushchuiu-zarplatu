@@ -1,17 +1,6 @@
 import requests
 from itertools import count
-import os
-
-
-def predict_rub_salary(salary):
-    if salary['from'] and salary['to']:
-        return salary['from'] + salary['to'] / 2
-
-    elif salary['from']:
-        return salary['from'] * 1.2
-
-    else:
-        return salary['to'] * 0.8
+from predict_rub_salary import predict_rub_salary
 
 
 def get_HH_statistic():
